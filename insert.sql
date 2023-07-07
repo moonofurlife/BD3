@@ -28,16 +28,27 @@ VALUES (1,'Когда ты откроешь глаза',2021),
 
 
 INSERT INTO  music_tracks 
-VALUES (1,'I Don’t Know Why',3,5),
-(2,'Believer',3,5),
-(3,'Dancing In The Dark',3,5),
-(4,'Половина моя',4,3),
-(5,'Без обид',4,3),
-(6,'Отпускай',3,2),
-(7,'Перезаряжай',3,1),
-(8,'my love',5,3),
-(9,'I Wasnt Made for Love',4,6),
-(10,'Another sunrise',4,7);
+VALUES (1,'I Don’t Know Why',180,5),
+(2,'Believer',180,5),
+(3,'Dancing In The Dark',210,5),
+(4,'Половина моя',220,3),
+(5,'Без обид',240,3),
+(6,'Отпускай',180,2),
+(7,'Перезаряжай',180,1),
+(8,'my love',210,3),
+(9,'I Wasnt Made for Love',240,6),
+(10,'Another sunrise',240,7),
+(11, 'my own',240,7),
+(12,'own my',210,3),
+(13,'my',220,2),
+(14,'oh my god',210,1),
+(15,'myself',220,2),
+(16,'by myself',180,4),
+(17,'bemy self',190,5),
+(18,'myself by', 210, 6),
+(19,'by myself by', 300,5),
+(20,'beemy', 210,2),
+(21,'premyne',220,3);
 
 
 INSERT INTO  music_collections 

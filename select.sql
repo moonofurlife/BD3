@@ -3,9 +3,9 @@ FROM music_tracks
 ORDER BY length DESC
 LIMIT 1; 
 
-SELECT name  
-FROM music_tracks 
-WHERE length > 3.5;
+SELECT name
+FROM music_tracks
+WHERE length >= 210;
 
 SELECT name 
 FROM music_collections  
@@ -15,9 +15,12 @@ SELECT name
 FROM music_artists 
 WHERE name NOT LIKE '% %';
 
-SELECT name 
-FROM music_tracks 
-WHERE name LIKE '%my%' OR name LIKE '%мой%';
+SELECT name
+FROM music_tracks
+WHERE name ILIKE '% my %' OR name ILIKE '% мой %'
+   OR name ILIKE 'my %' OR name ILIKE '% my'
+   OR name ILIKE 'мой %' OR name ILIKE '% мой'
+   OR name ILIKE 'my' OR name ILIKE 'мой';
 
 SELECT musical_genres.name AS genre, COUNT(artists_genres.artist_id) AS artist_count
 FROM musical_genres
