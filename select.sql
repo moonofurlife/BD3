@@ -38,11 +38,17 @@ FROM music_tracks
 LEFT JOIN albums ON albums.album_id  = music_tracks.album_id 
 GROUP BY albums.name;
 
-SELECT distinct music_artists.name AS artist
+SELECT music_artists.name AS artist
 FROM music_artists
 LEFT JOIN artists_albums ON music_artists.artist_id = artists_albums.artist_id
 LEFT JOIN albums ON artists_albums.album_id = albums.album_id
-WHERE albums.release_year <> 2020 OR albums.release_year IS NULL;
+WHERE music_artists.name NOT IN (
+    SELECT music_artists.name
+    FROM music_artists
+    JOIN artists_albums ON music_artists.artist_id = artists_albums.artist_id
+    JOIN albums ON artists_albums.album_id = albums.album_id
+    WHERE albums.release_year = 2020
+)
 
 
 SELECT music_collections.name AS collection
@@ -59,8 +65,9 @@ SELECT a.name AS Название_альбома
 FROM albums a
 JOIN artists_albums aa ON a.album_id = aa.album_id
 JOIN artists_genres ag ON aa.artist_id = ag.artist_id
-GROUP BY a.album_id, a.name
+GROUP BY aa.artist_id, a.album_id, a.name
 HAVING COUNT(DISTINCT ag.genre_id) > 1;
+
 
 
 SELECT t.name AS Наименование_трека
